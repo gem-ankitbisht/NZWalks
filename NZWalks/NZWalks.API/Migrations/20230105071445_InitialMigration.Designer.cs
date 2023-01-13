@@ -72,17 +72,15 @@ namespace NZWalks.API.Migrations
                     b.Property<Guid>("RegionId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("WalkDIfficultyId")
-                        .HasColumnType("uniqueidentifier");
+                 
 
-                    b.Property<Guid>("WalkDifficuktyId")
+                    b.Property<Guid>("WalkDIfficultyId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
                     b.HasIndex("RegionId");
 
-                    b.HasIndex("WalkDIfficultyId");
 
                     b.ToTable("Walkss");
                 });
@@ -110,11 +108,7 @@ namespace NZWalks.API.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("NZWalks.API.Models.Domain.WalkDIfficulty", "WalkDIfficulty")
-                        .WithMany()
-                        .HasForeignKey("WalkDIfficultyId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+              
 
                     b.Navigation("Region");
 

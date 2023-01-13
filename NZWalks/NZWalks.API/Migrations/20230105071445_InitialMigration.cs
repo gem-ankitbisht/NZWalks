@@ -48,8 +48,8 @@ namespace NZWalks.API.Migrations
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Length = table.Column<double>(type: "float", nullable: false),
                     RegionId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    WalkDifficuktyId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    WalkDIfficultyId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    WalkDIfficultyId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+           
                 },
                 constraints: table =>
                 {
@@ -60,12 +60,7 @@ namespace NZWalks.API.Migrations
                         principalTable: "Regions",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Walkss_WalkDIfficulty_WalkDIfficultyId",
-                        column: x => x.WalkDIfficultyId,
-                        principalTable: "WalkDIfficulty",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                
                 });
 
             migrationBuilder.CreateIndex(
@@ -73,10 +68,7 @@ namespace NZWalks.API.Migrations
                 table: "Walkss",
                 column: "RegionId");
 
-            migrationBuilder.CreateIndex(
-                name: "IX_Walkss_WalkDIfficultyId",
-                table: "Walkss",
-                column: "WalkDIfficultyId");
+        
         }
 
         /// <inheritdoc />
